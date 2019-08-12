@@ -5,7 +5,7 @@
 FROM node:10-alpine
 LABEL maintainer="vkom <admin@vkom.cc>"
 
-ARG MYTIME_RELEASE_URL=https://example.com
+ARG AQUA_RELEASE_URL=https://example.com
 
 # prepare build directory:
 RUN mkdir -pm0700 /usr/src/aqua
@@ -14,7 +14,7 @@ WORKDIR /usr/src/aqua
 
 # download and unpack aqua release:
 RUN apk add --no-cache curl \
-	&& curl -LSs ${MYTIME_RELEASE_URL} | tar zxvC .
+	&& curl -LSs ${AQUA_RELEASE_URL} | tar zxvC .
 
 # install python for as npm plugin dependence:
 RUN apk add --no-cache build-base python
