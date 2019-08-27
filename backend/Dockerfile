@@ -35,7 +35,8 @@ COPY --chown=root:w3aqua --from=source /usr/src/aqua/ $AQUA_SITE_DIR
 RUN chmod 2110 $AQUA_SITE_DIR
 
 # remove public and bot files:
-RUN rm -vrf public bot.js
+RUN rm -vrf public bot.js \
+	&& mkdir -pm0400 public # fucking hack for backend framework =(
 
 # messy code for nodejs backend index.html err fix
 # RUN mkdir -vm 2110 public \
