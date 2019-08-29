@@ -26,8 +26,7 @@ WORKDIR $AQUA_SITE_DIR
 COPY --chown=root:root --from=source /usr/src/aqua/ $AQUA_SITE_DIR
 
 # fix permissions for anonymous users:
-RUN chmod -R a=rX $AQUA_SITE_DIR \
-	&& chattr -R +i $AQUA_SITE_DIR
+RUN chmod -R a=rX $AQUA_SITE_DIR
 
 # remove public and bot files:
 RUN rm -vrf cache views node_modules app.js bot.js
