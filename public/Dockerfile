@@ -25,14 +25,12 @@ WORKDIR $AQUA_SITE_DIR
 # copy files:
 COPY --chown=root:root --from=source /usr/src/aqua/ $AQUA_SITE_DIR
 
-# fix permissions for anonymous users: XXX FIXME - remove --X for folders in workdir!!
-RUN chmod o+rx $AQUA_SITE_DIR
+# fix permissions for anonymous users:
+RUN chmod -R a=rX $AQUA_SITE_DIR \
+	&& chattr -R +i $AQUA_SITE_DIR
 
 # remove public and bot files:
 RUN rm -vrf cache views node_modules app.js bot.js
-
-# AQUA_SITE_DIR files listing for debugging:
-RUN ls -la $AQUA_SITE_DIR
 
 # create log dir: XXX - log dir used only with forever
 # RUN mkdir -pm0170 /var/log/aqua \
