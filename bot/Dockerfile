@@ -12,7 +12,7 @@ ARG AQUA_BOT_ID=1
 FROM $AQUA_BASE_IMAGE as source
 
 
-FROM node:10-slim
+FROM node:12-alpine
 LABEL maintainer="vkom <admin@vkom.cc>"
 
 # env for cmd exec:

@@ -2,7 +2,7 @@
 # vim: ft=Dockerfile
 
 # aqua deploy Dockerfile - base
-FROM node:10-alpine
+FROM node:12-alpine
 LABEL maintainer="vkom <admin@vkom.cc>"
 
 ARG AQUA_RELEASE_URL=https://example.com
